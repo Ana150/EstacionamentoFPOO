@@ -59,19 +59,20 @@ public class FrameEstacionamento {
 	
 	public void criarTela() {
 	
-		Color verdeLimao = new Color(13, 226, 18);
+		Color cinza = new Color(222, 223, 237);
 		Color azul = new Color(84, 158, 233);
 		Font novaFonte = new Font("Cambria Math", Font.BOLD, 20);
 		Font novaFonte1 = new Font("Cambria Math", Font.BOLD, 12);
 		
 		JFrame tela = new JFrame();
 		tela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		tela.getContentPane().setBackground(cinza);
 		tela.setTitle("Movimentação do estacionamento");
 		tela.setSize(600, 500);
 		tela.setLayout(null);
 		
 		labelEntrada = new JLabel("ENTRADA");
-		labelEntrada.setForeground(verdeLimao);
+		labelEntrada.setForeground(Color.black);
 		labelEntrada.setBounds(20, 10, 130, 30);
 		labelEntrada.setFont(novaFonte);
 		
@@ -99,7 +100,7 @@ public class FrameEstacionamento {
 		tabelaMovimentoModel.addColumn("DATA DE ENTRADA");
 		
 		labelSaida = new JLabel("SAIDA");
-		labelSaida.setForeground(verdeLimao);
+		labelSaida.setForeground(Color.black);
 		labelSaida.setBounds(20, 210, 130, 30);
 		labelSaida.setFont(novaFonte);
 		
@@ -238,7 +239,7 @@ public class FrameEstacionamento {
 				EstacionamentoDao dao = new EstacionamentoDao(movimento);
 				dao.salvar();
 				
-				JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso!!!");
+				JOptionPane.showMessageDialog(null, "Veículo cadastrado com sucesso!!!");
 
 				textPlaca.setText("");
 				textModelo.setText("");
@@ -259,8 +260,6 @@ public class FrameEstacionamento {
            
             EstacionamentoDao dao = new EstacionamentoDao();
             Movimento movimento = dao.buscarMovimento(placa);
-           
-            Veiculo vei = new Veiculo();
             
             textModelo2.setText(movimento.getVeiculo().getModelo());
             textDataEntrada.setText(movimento.getDataEntrada());
@@ -272,35 +271,11 @@ public class FrameEstacionamento {
         }
     });
 	
-	buttonFechar.addMouseListener(new MouseListener() {
+	buttonFechar.addActionListener(new ActionListener() {
 		
 		@Override
-		public void mouseReleased(MouseEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
-		
-		@Override
-		public void mousePressed(MouseEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
-		
-		@Override
-		public void mouseExited(MouseEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
-		
-		@Override
-		public void mouseEntered(MouseEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
-		
-		@Override
-		public void mouseClicked(MouseEvent e) {
-			tela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
+		public void actionPerformed(ActionEvent e) {
+		System.exit(0);
 		}
 	});
 	

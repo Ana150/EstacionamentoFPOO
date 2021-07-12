@@ -11,7 +11,6 @@ import java.util.ArrayList;
 
 import br.com.estacionabem.model.Movimento;
 import br.com.estacionabem.model.Veiculo;
-import br.com.estacionabem.util.Util;
 
 public class EstacionamentoDao {
 //		private Veiculo veiculo;
